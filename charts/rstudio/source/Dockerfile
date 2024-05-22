@@ -47,6 +47,8 @@ RUN install2.r -e shiny rmarkdown shinythemes shinydashboard && \
     chown rstudio:rstudio /var/log/shiny-server && \
     chmod go+w -R /var/log/shiny-server /usr/local/lib/R /srv /var/lib/shiny-server && \
     chmod ugo+rwx -R /usr/lib/rstudio-server/www && \
+    mkdir -p /tmp/reports && \
+    chmod 777 /tmp/reports && \
     echo 'r-libs-user=~/R/library' >>/etc/rstudio/rsession.conf && \
     echo "R_LIBS=\${R_LIBS-'/home/rstudio-server/R/library'}" >/usr/local/lib/R/etc/Renviron.site
 
