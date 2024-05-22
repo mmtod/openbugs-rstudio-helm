@@ -48,9 +48,7 @@ RUN install2.r -e shiny rmarkdown shinythemes shinydashboard && \
     chmod go+w -R /var/log/shiny-server /usr/local/lib/R /srv /var/lib/shiny-server && \
     chmod ugo+rwx -R /usr/lib/rstudio-server/www && \
     echo 'r-libs-user=~/R/library' >>/etc/rstudio/rsession.conf && \
-    echo "R_LIBS=\${R_LIBS-'/home/rstudio-server/R/library'}" >/usr/local/lib/R/etc/Renviron.site && \
-    mkdir -p /tmp/reports && \
-    chmod 777 /tmp/reports
+    echo "R_LIBS=\${R_LIBS-'/home/rstudio-server/R/library'}" >/usr/local/lib/R/etc/Renviron.site
 
 RUN wget -nd -P /tmp https://pj.freefaculty.org/Ubuntu/15.04/amd64/openbugs/openbugs_3.2.3-1_amd64.deb && \
     dpkg -i /tmp/openbugs_3.2.3-1_amd64.deb && rm /tmp/openbugs_3.2.3-1_amd64.deb
